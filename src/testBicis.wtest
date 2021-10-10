@@ -2,10 +2,12 @@ import bicis.*
 import accesorios.*
 
 describe "test de bicis" {
-
+	var canastoBici2 = new Canasto(volumen=8)
+	var morralBici2 = new MorralDeBici(largo=21, ojoDeGato=true)
+	var morralBici3 = new MorralDeBici(largo=6, ojoDeGato=false)
 	var bici1 = new Bicis(rodado = 28, largo = 150, marca = "Olmo", accesorios = [ farolito ])
-	var bici2 = new Bicis(rodado = 26, largo = 110, marca = "Legnano", accesorios = [ farolito, canasto, morralDeBici ])
-	var bici3 = new Bicis(rodado = 20, largo = 90, marca = "Legnano", accesorios = [ morralDeBici ])
+	var bici2 = new Bicis(rodado = 26, largo = 110, marca = "Legnano", accesorios = [ farolito, canastoBici2, morralBici2 ])
+	var bici3 = new Bicis(rodado = 20, largo = 90, marca = "Legnano", accesorios = [ morralBici3 ])
 
 	test "test de bici1" {
 		assert.equals(85, bici1.altura())
@@ -17,9 +19,6 @@ describe "test de bicis" {
 	}
 
 	test "test de bici2" {
-		canasto.volumen(8)
-		morralDeBici.largo(21)
-		morralDeBici.ojoDeGato(true)
 		assert.equals(80, bici2.altura())
 		assert.equals(28, bici2.velocidadDeCrucero())
 		assert.equals(23, bici2.carga())
@@ -29,8 +28,6 @@ describe "test de bicis" {
 	}
 
 	test "test de bici3" {
-		morralDeBici.largo(6)
-		morralDeBici.ojoDeGato(false)
 		assert.equals(65, bici3.altura())
 		assert.equals(22, bici3.velocidadDeCrucero())
 		assert.equals(2, bici3.carga())
